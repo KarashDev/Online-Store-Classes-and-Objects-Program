@@ -322,7 +322,16 @@ namespace ConsoleApp1
                 string agreement2 = Convert.ToString(Console.ReadLine());
                 if (agreement2.ToLower() == "да")
                 {
-                    onlineStore.ShowBacket();
+                    if (!onlineStore.Basket.Any())
+                    {
+                        Console.WriteLine("");
+                        Console.WriteLine("=== Ваша корзина и так пуста ===");
+                        MainMenu(onlineStore);
+                    }
+                    else
+                    {
+                        onlineStore.ShowBacket();
+                    }
                 }
                 
                 Console.WriteLine("");
